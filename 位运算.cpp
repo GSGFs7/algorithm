@@ -6,6 +6,7 @@ int lowBit(int x)
     return x & -x;
     // & 位与运算 当两个值都为1时结果为1 0&0为0
     // 可获得x二进制的最后一位
+    // -x 等于 ~x+1 取反加1
 }
 
 int main()

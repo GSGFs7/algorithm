@@ -7,4 +7,4 @@ add_executable(c
         1.c
         2.c
         3.c
-        Untitled1.cpp 1.cpp 1.cpp 1.cpp 1.cpp 位与.cpp 1.cpp temp.h)
+        Untitled1.cpp 快速幂运算和取模定理.cpp 快速幂运算和取模定理.cpp 快速幂运算和取模定理.cpp 快速幂运算和取模定理.cpp 位与.cpp 快速幂运算和取模定理.cpp temp.h 1.cpp)
