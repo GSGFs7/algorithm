@@ -1,2 +1,2 @@
-C:/Users/20305/OneDrive - MSFT/桌面/c/cmake-build-debug-mingw/CMakeFiles/ALL_BUILD.dir
-C:/Users/20305/OneDrive - MSFT/桌面/c/cmake-build-debug-mingw/CMakeFiles/ZERO_CHECK.dir
+C:/c/cmake-build-debug-mingw/CMakeFiles/ALL_BUILD.dir
+C:/c/cmake-build-debug-mingw/CMakeFiles/ZERO_CHECK.dir
