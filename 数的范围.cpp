@@ -8,18 +8,18 @@ int main()
 {
     int n, q;
     scanf("%d%d", &n, &q);
-    for (int i = 0; i < n; i++) scanf("%d", &a[i]);//¶ÁÈëÊý×é
+    for (int i = 0; i < n; i++) scanf("%d", &a[i]);//è¯»å…¥æ•°ç»„
 
     while (q--)
     {
         int x;
         scanf("%d", &x);
-        int l = 0, r = n - 1;                                //ÓÒ±ßÉÙÒ»¸ö
-        while (l < r)                                          //ÇóµÃ×ó±ß½ç
+        int l = 0, r = n - 1;                                //å³è¾¹å°‘ä¸€ä¸ª
+        while (l < r)                                         //æ±‚å¾—å·¦è¾¹ç•Œ
         {
             int mid = l + r >> 1;                        //mid = l + r >> 1
-            if (a[mid] >= x) r = mid;                  //±ÕÇø¼ä
-            else l = mid + 1;                              //¼Ó
+            if (a[mid] >= x) r = mid;                  //é—­åŒºé—´
+            else l = mid + 1;                              //åŠ 
         }
 
         if (a[l] != x) printf("-1 -1\n");
@@ -27,14 +27,20 @@ int main()
         {
             printf("%d ", l);
             int l = 0, r = n - 1;
-            while (l < r)                                       //ÇóÓÒ±ß½ç
+            while (l < r)                                       //æ±‚å³è¾¹ç•Œ
             {
                 int mid = l + r + 1 >> 1;               //mid = l + r + 1 >> 1
                 if (a[mid] <= x) l = mid;
-                else r = mid - 1;                             //¼õ
+                else r = mid - 1;                             //å‡
             }
             printf("%d\n", l);
         }
     }
     return 0;
 }
+
+/*
+ * äºŒåˆ†
+ * å½“l=midæ—¶mid=l+r+1>>1   [mid,r] (true)
+ * å½“r=midæ—¶mid=l+r>>1   [1,mid] (true)
+ * */
