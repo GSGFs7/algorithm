@@ -36,6 +36,7 @@ void quick_sort(int a[], int l, int r)
     // 将剩下的两部分再排序
     quick_sort(a, l, j);
     quick_sort(a, j + 1, r);
+    // 此处不是以mid为分界线，mid仅用于随机寻找一个点当分界点，排序完成后以i和j为分界点
 }
 
 int main()
