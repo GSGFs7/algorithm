@@ -15,6 +15,7 @@ int main()
 	int cnt1 = 0, cnt2 = 0;
 	for (int i = l1 - 1; i >= 0; i--) a[cnt1++] = n1[i] - '0';
 	for (int i = l2 - 1; i >= 0; i--) b[cnt2++] = n2[i] - '0';
+    // 字符型数字转换为数字需要减’0‘  ASCII码
 
 	//相加
 	int temp = 0;

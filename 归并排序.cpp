@@ -27,19 +27,19 @@ void merge_sort(int a[], int l, int r)
     // 分解
     int mid = (l + r) >> 1;// 向下取整
 
-    // 递归处理分解
+    // 分解成尽可能小的两部分
     merge_sort(a, l, mid);
     merge_sort(a, mid + 1, r);
 
     // 合并子问题
-    int k = 0, i = l, j = mid + 1;
+    int k = 0, i = l, j = mid + 1;// 初始化，分割成两部分
     while(i <= mid && j <= r)// 保证数组不会越界
-        if(a[i] <= a[j]) temp[k++] = a[i++];
-        else temp[k++] = a[j++];// 初步排序并写入到临时数组
-    while(i <= mid) temp[k++] = a[i++];// 从临时数组读出到a[]
-    while(j <= r) temp[k++] = a[j++];
+        if(a[i] <= a[j]) temp[k++] = a[i++];// 将两个区域内较小的依次数放入数组
+        else temp[k++] = a[j++];// 同上
+    while(i <= mid) temp[k++] = a[i++];// 将剩余的所有数补到数组最后
+    while(j <= r) temp[k++] = a[j++];// 同上
 
-    for (i = l, j = 0; i <= r; i++, j++) a[i] = temp[j];
+    for (i = l, j = 0; i <= r; i++, j++) a[i] = temp[j];// 取出已经排序完成的数组，不取回可能会被新的临时数据覆盖
 }
 
 int main()
