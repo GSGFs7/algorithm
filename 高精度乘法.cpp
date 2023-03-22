@@ -2,25 +2,25 @@
 #include <vector>
 using namespace std;
 
-vector<int> mul(vector<int> A, vector<int> B)// ·µ»ØvectorÊı×é
+vector<int> mul(vector<int> A, vector<int> B)// è¿”å›vectoræ•°ç»„
 {
-    vector<int> C(A.size() + B.size());// ÉèÖÃÔªËØ¸öÊı
+    vector<int> C(A.size() + B.size());// è®¾ç½®å…ƒç´ ä¸ªæ•°
 
-    // ÀûÓÃ¶şÖØÑ­»·Ä£ÄâÁ½Êı¸÷Î»ÒÀ´ÎÏà³Ë£¬Î´´¦Àí½øÎ»
+    // åˆ©ç”¨äºŒé‡å¾ªç¯æ¨¡æ‹Ÿä¸¤æ•°å„ä½ä¾æ¬¡ç›¸ä¹˜ï¼Œæœªå¤„ç†è¿›ä½
     for (int i = 0; i < A.size(); i ++ )
         for (int j = 0; j < B.size(); j ++ )
             C[i + j] += A[i] * B[j];
 
-    // ´¦Àí½øÎ»
+    // å¤„ç†è¿›ä½
     for (int i = 0, t = 0; i < C.size() || t; i ++ )
     {
         t += C[i];
-        if (i >= C.size()) C.push_back(t % 10);// Èç¹û´óÓÚÔ¤ÉèÖµ¾ÍÏòºóÀ©³äÒ»Î»
+        if (i >= C.size()) C.push_back(t % 10);// å¦‚æœå¤§äºé¢„è®¾å€¼å°±å‘åæ‰©å……ä¸€ä½
         else C[i] = t % 10;
         t /= 10;
     }
 
-    while (C.size() > 1 && !C.back()) C.pop_back();// ³ËÒÔ0Ê±È¥³ı¶àÓàµÄ0
+    while (C.size() > 1 && !C.back()) C.pop_back();// ä¹˜ä»¥0æ—¶å»é™¤å¤šä½™çš„0
 
     return C;
 }
@@ -30,12 +30,12 @@ int main()
     string a, b;
     cin >> a >> b;
 
-    // ×ª»»ÎªvectorÊı×é
+    // è½¬æ¢ä¸ºvectoræ•°ç»„
     vector<int> A, B;
     for (int i = a.size() - 1; i >= 0; i -- ) A.push_back(a[i] - '0');
     for (int i = b.size() - 1; i >= 0; i -- ) B.push_back(b[i] - '0');
 
-    auto C = mul(A, B);// ×Ô¶¯ÅĞ¶ÏCµÄÀàĞÍ
+    auto C = mul(A, B);// è‡ªåŠ¨åˆ¤æ–­Cçš„ç±»å‹
 
     for (int i = C.size() - 1; i >= 0; i -- ) cout << C[i];
     cout << endl;

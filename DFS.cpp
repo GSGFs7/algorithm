@@ -25,22 +25,25 @@ int n;
 
 void dfs(int u)
 {
+    // u=0时为第一层，等于n-1时为最后一层
     if (u == n)// 如果搜索达到尽头，输出结果
     {
-        for (int i = 0; i < n; i++) printf("%d ", path[i]);
-        puts("");
+        for (int i = 0; i < n; i++) printf("%d ", path[i]);// 输出路径
+        puts("");// 换行
         return;
     }
 
     for (int i = 1; i <= n; i++)
     {
-        if (!st[i])
+        if (!st[i])// 找到一个没有被用过的数
         {
             path[u] = i;
-            st[i] = true;
-            dfs(u+1);
-            path[u] = 0;// 会被不断覆盖，不用回复也可
-            st[i] = false;// 退出这条枝
+            st[i] = true;// 使用标记
+            dfs(u+1);// 搜索下一个
+            // 回复
+            // path[u] = 0;// 会被不断覆盖，不用回复也可
+            st[i] = false;// 回复
+            // 进出递归时修改状态
         }
     }
 }
@@ -51,3 +54,6 @@ int main()
     dfs(0);
     return 0;
 }
+
+// https://www.acwing.com/problem/content/844/
+// DFS暴搜
