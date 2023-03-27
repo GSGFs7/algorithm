@@ -17,6 +17,7 @@
  *      |
  * 2 <- 1 -> 3
  * |---------^
+ *
  * */
 
 #include <iostream>
@@ -25,7 +26,7 @@
 using namespace std;
 
 const int N = 1e5 + 10, M = N * 2;
-int n, m;
+int n;
 int h[N], e[M], ne[M], idx;
 bool st[N];
 int ans = N;
@@ -48,16 +49,34 @@ int dfs(int u)
         {
             int s = dfs(j);
             res = max(res, s);
+            sum += s;
         }
     }
+    res = max(res, n - sum);
+    ans = min(ans, res);
+    return sum;
 }
 
 int main()
 {
+    cin >> n;
     memset(h, -1, sizeof h);
 
+    for (int i = 0; i < n - 1; i++)
+    {
+        int a, b;
+        cin >> a >> b;
+        add(a, b), add(b, a);
+    }
+
     dfs(1);
+
+    cout << ans << endl;
+    return 0;
 }
+
+
+// https://www.acwing.com/problem/content/848/
 
 // 模板
 /*

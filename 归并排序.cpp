@@ -33,7 +33,7 @@ void merge_sort(int a[], int l, int r)
 
     // 合并子问题
     int k = 0, i = l, j = mid + 1;// 初始化，分割成两部分
-    while(i <= mid && j <= r)// 保证数组不会越界
+    while(i <= mid && j <= r)// 如果一边排完，另一边直接全部放到数组末尾
         if(a[i] <= a[j]) temp[k++] = a[i++];// 将两个区域内较小的依次数放入数组
         else temp[k++] = a[j++];// 同上
     while(i <= mid) temp[k++] = a[i++];// 将剩余的所有数补到数组最后

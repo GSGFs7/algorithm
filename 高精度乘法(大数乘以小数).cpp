@@ -2,33 +2,33 @@
 #include <vector>
 using namespace std;
 
-vector<int> mul(vector<int> &A, int b) // ·µ»ØvectorÊý×é
+vector<int> mul(vector<int> &A, int b) // è¿”å›žvectoræ•°ç»„
 {
     vector<int> C;
 
-    int t = 0;// ½øÎ»
-    for (int i = 0; i < A.size() || t; i++)// ½«Á½¸öÑ­»·ÕûºÏµ½Ò»Æð
+    int t = 0;// è¿›ä½
+    for (int i = 0; i < A.size() || t; i++)// å°†ä¸¤ä¸ªå¾ªçŽ¯æ•´åˆåˆ°ä¸€èµ·
     {
-        if (i < A.size()) t += A[i] * b;// ´¦ÀíÏà³Ë²Ù×÷
-        // ´¦ÀíÊ£ÏÂµÄ½øÎ»
+        if (i < A.size()) t += A[i] * b;// å¤„ç†ç›¸ä¹˜æ“ä½œ
+        // å¤„ç†å‰©ä¸‹çš„è¿›ä½
         C.push_back(t % 10);
         t /= 10;
     }
-    while (C.size() > 1 && C.back() == 0) C.pop_back();// µ±³ËÒÔ0Ê±£¬È¥³ýÇ°ÃæµÄÁã£¬C.pop_back()ÒÆ³ýÕ»¶¥
+    while (C.size() > 1 && C.back() == 0) C.pop_back();// å½“ä¹˜ä»¥0æ—¶ï¼ŒåŽ»é™¤å‰é¢çš„é›¶ï¼ŒC.pop_back()ç§»é™¤æ ˆé¡¶
     return C;
 }
 
 int main()
 {
-    // ´óÊý³ËÒÔÐ¡Êý
+    // å¤§æ•°ä¹˜ä»¥å°æ•°
     string a;
     int b;
     cin >> a >> b;
 
-    vector<int> A;// ×ª´¢ÎªvectorÊý×é
+    vector<int> A;// è½¬å‚¨ä¸ºvectoræ•°ç»„
     for (int i = a.size() - 1; i >= 0; i--) A.push_back(a[i] - '0');
 
-    auto c = mul(A, b);// ¼ÆËã³ËµÃµÄÊý×é
+    auto c = mul(A, b);// è®¡ç®—ä¹˜å¾—çš„æ•°ç»„
 
     for (int i = c.size() - 1; i >= 0; i--) cout << c[i];
     return 0;

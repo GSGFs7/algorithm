@@ -55,7 +55,7 @@ void add(int k, int x)
 // 删除下标是k的指针
 void remove(int k)
 {
-    ne[k] = ne[ne[k]];
+    ne[k] = ne[ne[k]];// 指向下一个节点的下一个，即跳过下一个节点直接指向下下个节点
 }
 
 int main()
