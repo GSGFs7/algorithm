@@ -19,7 +19,7 @@
 using namespace std;
 
 const int N = 10;
-int path[N];
+int path[N];// 记录路径
 bool st[N];// 判断是否重复
 int n;
 
@@ -33,15 +33,15 @@ void dfs(int u)
         return;
     }
 
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++)// 从1开始，排到n
     {
         if (!st[i])// 找到一个没有被用过的数
         {
             path[u] = i;
-            st[i] = true;// 使用标记
+            st[i] = true;// 使用标记，使用过的数标记为true
             dfs(u+1);// 搜索下一个
             // 回复
-            // path[u] = 0;// 会被不断覆盖，不用回复也可
+            // path[u] = 0;// 会被不断覆盖，不用回复
             st[i] = false;// 回复
             // 进出递归时修改状态
         }
