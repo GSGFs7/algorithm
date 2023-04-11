@@ -14,14 +14,14 @@ PII q[N*N], Prev[N][N];// 模拟队列
 
 int bfs()
 {
-    int hh = 0, tt = 0;
+    int hh = 0, tt = 0;// 手搓队列
     q[0] = {0, 0};
 
     // 初始化
     memset(d, -1, sizeof d);
-    d[0][0] = 0;
+    d[0][0] = 0;// 起点
 
-    int dx[4] = {-1, 0, 1, 0}, dy[4] = {0, 1, 0, -1};
+    int const dx[4] = {-1, 0, 1, 0}, dy[4] = {0, 1, 0, -1};// 向量表示
 
     while (hh <= tt)// 如果不为空
     {
@@ -30,7 +30,7 @@ int bfs()
         for (int i = 0; i < 4; i++)// 查询上下左右四个方向
         {
             int x = t.first + dx[i], y = t.second + dy[i];
-            if (x >= 0 && x < n && y >= 0 && y < m && g[x][y] == 0 && d[x][y] == -1)
+            if (x >= 0 && x < n && y >= 0 && y < m && g[x][y] == 0 && d[x][y] == -1)// 在边界内，没走过，可以走
             {
                 d[x][y] = d[t.first][t.second] + 1;
                 Prev[x][y] = t;
