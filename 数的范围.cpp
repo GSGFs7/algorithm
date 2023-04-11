@@ -2,7 +2,7 @@
 using namespace std;
 
 const int N = 1e5 + 10;
-int a[10010];
+int a[N];
 
 int main()
 {
@@ -26,7 +26,7 @@ int main()
         else
         {
             printf("%d ", l);
-            int l = 0, r = n - 1;
+            l = 0, r = n - 1;
             while (l < r)                                       //求右边界
             {
                 int mid = l + r + 1 >> 1;               //mid = l + r + 1 >> 1
