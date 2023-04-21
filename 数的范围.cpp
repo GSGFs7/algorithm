@@ -14,12 +14,12 @@ int main()
     {
         int x;
         scanf("%d", &x);
-        int l = 0, r = n - 1;                                //右边少一个
-        while (l < r)                                         //求得左边界
+        int l = 0, r = n - 1;//右边少一个
+        while (l < r) //求得左边界
         {
-            int mid = l + r >> 1;                        //mid = l + r >> 1
-            if (a[mid] >= x) r = mid;                  //闭区间
-            else l = mid + 1;                              //加
+            int mid = l + r >> 1;  //mid = l + r >> 1
+            if (a[mid] >= x) r = mid;  //闭区间
+            else l = mid + 1;  //加
         }
 
         if (a[l] != x) printf("-1 -1\n");
@@ -27,11 +27,11 @@ int main()
         {
             printf("%d ", l);
             l = 0, r = n - 1;
-            while (l < r)                                       //求右边界
+            while (l < r)     //求右边界
             {
-                int mid = l + r + 1 >> 1;               //mid = l + r + 1 >> 1
+                int mid = l + r + 1 >> 1;   //mid = l + r + 1 >> 1
                 if (a[mid] <= x) l = mid;
-                else r = mid - 1;                             //减
+                else r = mid - 1;    //减
             }
             printf("%d\n", l);
         }
