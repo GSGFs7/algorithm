@@ -1,12 +1,12 @@
-def mul(y):  # 阶乘
-    k = 1
-    for i in range(1, y + 1):
-        k *= i
-    return k
+def mul(x):
+    if x == 1:
+        return 1
+    return x * mul(x - 1)
 
 
-a = int(input())
-ans = 1
-for i in range(1, a):
-    ans += mul(i+1)
+n = int(input())
+ans = 0
+for i in range(1, n + 1):
+    ans += mul(i)
+
 print(ans)
