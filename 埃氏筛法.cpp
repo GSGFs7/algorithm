@@ -22,7 +22,7 @@ void get_prime(int n)
     {
         if (!st[i])
         {
-            primes[cnt++] = n;
+            primes[cnt++] = i;
             for (int j = 0; j <= n; j += i) st[j] = true;// 可以放到if里面，只删掉质数的倍数
             // 优化到O(nloglogn)
         }

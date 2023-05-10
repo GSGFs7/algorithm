@@ -1,12 +1,7 @@
-def mul(x):
-    if x == 1:
-        return 1
-    return x * mul(x - 1)
+li = [0]
+for i in range(1, 100000):
+    li.append(0)
+    for j in range(1, i + 1):
+        li[i] = li[i] + i //j
 
-
-n = int(input())
-ans = 0
-for i in range(1, n + 1):
-    ans += mul(i)
-
-print(ans)
+print(li[10000])
