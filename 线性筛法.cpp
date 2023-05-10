@@ -23,11 +23,11 @@ void get_prime(int n)
     for (int i = 2; i <= n; i++)
     {
         if (!st[i]) primes[cnt ++] = i;// 保存质数，跳过合数
-        for (int j = 0; primes[j] <= n / i; j++)// 从小到大枚举所有的由这些质数组成的合数
+        for (int j = 0; primes[j] <= n / i; j++)// 从小到大枚举所有的由这些质数，用质数组成合数
         {
             // primes[j]一定是最小质因子
             st[primes[j] * i] = true;
-            if (primes[j] == 0) break;
+            if (i % primes[j] == 0) break;
             // i % primes[j] == 0时primes[j]一定是i的最小质因子
             // i % primes[j] != 0时primes[j]一定小于i的所有质因子，primes[j]一定也是primes[j]*i的最小值
         }
