@@ -11,7 +11,7 @@ using namespace std;
  * 通过 p = 2^x * 3^y造合数
  * 排列组合的乘法原理
  * x可以从0取到3，y可以从0取到2
- * TODO 妙啊！
+ * 妙啊！
  * */
 
 typedef long long LL;
