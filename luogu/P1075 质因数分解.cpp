@@ -6,7 +6,7 @@ int main()
     int n;
     cin >> n;
 
-    // 最大质因数 等于 最小质因数 除以 n
+    // 鏈�澶ц川鍥犳暟 绛変簬 鏈�灏忚川鍥犳暟 闄や互 n
     for (int i = 2; i < n/2; i++)
     {
         if (n % i == 0)

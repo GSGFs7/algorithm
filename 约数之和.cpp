@@ -42,7 +42,7 @@ int main()
     {
         int p = prime.first, a = prime.second;
         long long t = 1;
-        while (a --) t = t * (t * p + 1) % mod;// 秦九昭算法
+        while (a --) t = (t * p + 1) % mod;// 秦九昭算法
         res = res * t % mod;
     }
 
