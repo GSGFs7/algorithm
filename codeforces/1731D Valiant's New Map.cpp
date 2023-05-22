@@ -11,7 +11,7 @@ const int N = 1e6 + 10;
 vector<int> a[N], b[N];
 int n, m;
 
-// TODO 二分控制
+/// 二分控制
 bool check(int mid)
 {
     // 上标记
