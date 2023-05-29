@@ -360,7 +360,7 @@ ignoring nonexistent directory "C:/mingw-builds/msvcrt-seh-posix/x86_64-1220-pos
 
  C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/12.2.0/../../../../x86_64-w64-mingw32/include
 
-End of search list.
+End of w list.
 
 GNU C++17 (x86_64-posix-seh-rev2, Built by MinGW-W64 project) version 12.2.0 (x86_64-w64-mingw32)
 
