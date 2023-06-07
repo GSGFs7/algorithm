@@ -8,9 +8,9 @@ int main()
     int n;
     cin >> n;
     for (int i = 0; i < n; i++) cin >> a[i];
-    for (int i = 0; i < n-1; i++) b[i] = abs(a[i] - a[i+1]);// Ô¤´¦Àí¾ø¶ÔÖµ
+    for (int i = 0; i < n-1; i++) b[i] = abs(a[i] - a[i+1]);// é¢„å¤„ç†ç»å¯¹å€¼
     sort(b, b+n);
-    // ºË¶Ô¾ø¶ÔÖµ
+    // æ ¸å¯¹ç»å¯¹å€¼
     for (int i = 1; i < n; i++) {
         if (b[i] != i) {
             cout << "Not jolly" << endl;
@@ -21,5 +21,5 @@ int main()
     return 0;
 }
 
-// »¶ÀÖµÄÌø
+// æ¬¢ä¹çš„è·³
 // https://www.luogu.com.cn/problem/P1152

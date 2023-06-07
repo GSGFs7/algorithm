@@ -1,44 +1,31 @@
 #include <iostream>
-#include <cstring>
+#include <vector>
 using namespace std;
 
-const int N = 110;
-int a[N];
-int b[N];
-
-void k(int n)
-{
-    swap(b[n], b[n - 1]);
-    if (a[n] + b[n] < a[n - 1] + b[n - 1])
-        k(n - 1);
-}
-
-void solve()
-{
-    memset(&b, false, sizeof b);
-    int n;
-    cin >> n;
-    for (int i = 1; i <= n; i++)
-        cin >> a[i];
-
-    for (int i = 1; i <= n; i++)
-        b[i] = i;
-
-    for (int i = 1; i <= n; i++)
-    {
-        if (a[i] + i > a[i + 1] + i + 1)
-            k(i - 1);
-    }
-    for (int i = 1; i <= n; i++)
-        cout << b[i] << ' ';
-    cout << endl;
-}
+const int N = 1010;
+int f[N];
+vector<vector<pair<int, int>>> a(N);
 
 int main()
 {
-    int t;
-    cin >> t;
-    while (t--)
-        solve();
+    int n, m;
+    cin >> m >> n;
+    int t = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        int v, w, g;
+        cin >> v >> w >> g;
+        t = max(t, g);
+        a[g].emplace_back(v, w);
+    }
+
+    for (int i = 1; i <= t; i++)
+        for (auto j : a[i])
+            for (int k = m; k >= j.first; k--)
+                f[k] = max(f[k], f[k - j.first] + j.second);
+
+    cout << f[m] << endl;
+    for (int i = 1; i <= m; i++)
+        cout << f[i] << ' ';
     return 0;
 }
