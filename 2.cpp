@@ -1,31 +1,20 @@
-#include <iostream>
-#include <vector>
+#include<iostream>
+#include<cstring>
+#include<algorithm>
 using namespace std;
-
-const int N = 1010;
-int f[N];
-vector<vector<pair<int, int>>> a(N);
-
+int a[101],f[101][10001]={0};
 int main()
 {
-    int n, m;
-    cin >> m >> n;
-    int t = 0;
-    for (int i = 1; i <= n; i++)
-    {
-        int v, w, g;
-        cin >> v >> w >> g;
-        t = max(t, g);
-        a[g].emplace_back(v, w);
-    }
-
-    for (int i = 1; i <= t; i++)
-        for (auto j : a[i])
-            for (int k = m; k >= j.first; k--)
-                f[k] = max(f[k], f[k - j.first] + j.second);
-
-    cout << f[m] << endl;
-    for (int i = 1; i <= m; i++)
-        cout << f[i] << ' ';
+    int n,m;
+    cin>>n>>m;
+    for(int i=1;i<=n;++i)cin>>a[i];
+    for(int i=1;i<=n;++i)
+        for(int j=1;j<=m;++j)
+        {
+            if(j==a[i])f[i][j]=f[i-1][j]+1;
+            if(j>a[i]) f[i][j]=f[i-1][j]+f[i-1][j-a[i]];
+            if(j<a[i]) f[i][j]=f[i-1][j];
+        }
+    cout<<f[n][m];
     return 0;
 }
