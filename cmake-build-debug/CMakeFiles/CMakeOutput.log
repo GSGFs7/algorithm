@@ -461,7 +461,7 @@ Parsed CXX implicit link information from above output:
   ignore line: [ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/12.2.0/../../../../x86_64-w64-mingw32/include"]
   ignore line: [ignoring nonexistent directory "C:/mingw-builds/msvcrt-seh-posix/x86_64-1220-posix-seh-msvcrt-rt_v10-rev2/mingw64/mingw/include"]
   ignore line: [#include "..." search starts here:]
-  ignore line: [#include <...> search starts here:]
+  ignore line: [#include <...> dp starts here:]
   ignore line: [ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++]
   ignore line: [ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/x86_64-w64-mingw32]
   ignore line: [ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/backward]
