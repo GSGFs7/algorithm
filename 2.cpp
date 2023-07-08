@@ -1,42 +1,52 @@
-#include<iostream>
-#include<algorithm>
-#include<cstring>
+#include <iostream>
 using namespace std;
 
-const int N=100010;
-int a[N],s[N];
+typedef long long LL;
+const int N = 1e5 + 10, MOD = 1e9 + 7;
+int cases = 0;
+int p[N];// 预处理数组
+
+void solve()
+{
+    int n, m;
+    cin >> n >> m;
+    string s;
+    cin >> s;
+
+    // 预处理
+    p[0] = 1;
+    for (int i = 1; i <= m; i++)
+        p[i] = p[i - 1] * m % MOD;// 求出在没有限制的情况下的最大值
+
+    int const mid = (n + 1) / 2;// 自由度
+    LL res = 0;
+    for (int i = 0; i < mid; i++)
+    {
+        // 当前位置剩下的可选值乘以后续无限制的值，表示当前位置的值
+        res += (LL)(s[i] - 'a') * p[mid - i - 1] % MOD;
+        res %= MOD;
+    }
+
+    // 检查最后一次计算的结果的字典序是否小于题目给出的
+    int t = 0;
+    for (int i = mid - 1, j = n - 1 - i; i >= 0; i -- ,j++)
+        if (s[i] != s[j])
+        {
+            if (s[i] < s[j]) t = 1;
+            break;
+        }
+
+    res = (res + t) % MOD;
+    cout << "Case #" << ++ cases << ": " << res << endl;
+}
 
 int main()
 {
-    int T;
-    cin>>T;
-    for(int t=1;t<=T;t++)
-    {
-        int n;
-        scanf("%d",&n);
-        for(int i=1;i<=n;i++)scanf("%d",&a[i]);
-
-        memcpy(s,a,sizeof a);//把a数组复制到s数组，用s数组得到排序后的结果
-        sort(s+1,s+1+n);
-        
-        printf("Case #%d: ",t);
-        for(int i=1;i<=n;i++)
-        {
-            //对每一个a[i]，用二分找到第一个大于2*a[i]的数或者最右侧的等于2*a[i]的数
-            int l=1,r=n;
-            while(l<r)
-            {
-                int mid=l+r>>1;
-                if(s[mid]>2*a[i])r=mid;
-                else l=mid+1;
-            }
-
-            if(s[r]>2*a[i])r--;//找到的数可能大于2倍的a[i]而不满足题意，向左移动以取得比二倍a[i]小的数
-            if(a[i]==s[r])r--;//去除自身
-            if(r!=0)printf("%d ",s[r]);
-            else printf("-1 ");//r等于0表示对于a[i]没有数符合题意
-        }
-        printf("\n");
-    }
+    int t;
+    cin >> t;
+    while (t--)
+        solve();
     return 0;
 }
+
+// https://www.acwing.com/problem/content/description/3755/
