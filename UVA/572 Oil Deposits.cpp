@@ -58,3 +58,64 @@ int main()
 
 
 // https://www.luogu.com.cn/problem/UVA572
+
+// 二刷 2023.7.13
+/*
+#include <iostream>
+#include <queue>
+using namespace std;
+
+const int N = 110;
+char g[N][N];
+int n, m;
+int ans;
+int dx[8] = {1, 1, 0, -1, -1, -1, 0, 1};
+int dy[8] = {0, 1, 1, 1, 0, -1, -1, -1};
+
+void bfs(int x, int y)
+{
+    ans ++;
+
+    queue<pair<int, int>> q;
+    q.emplace(x, y);
+
+    while (!q.empty())
+    {
+        auto now = q.front();
+        q.pop();
+
+        for (int i = 0; i < 8; i++)
+        {
+            int const xx = now.first + dx[i];
+            int const yy = now.second + dy[i];
+
+            if (xx == 0 || xx == n + 1 || yy == 0 || yy == m + 1) continue;
+
+            if (g[xx][yy] == '@')
+            {
+                q.emplace(xx, yy);
+                g[xx][yy] = '*';
+            }
+        }
+    }
+}
+
+int main()
+{
+    while (true) {
+        ans = 0;
+
+        cin >> n >> m;
+        if (n == 0 || m == 0) exit(0);
+        for (int i = 1; i <= n; i++)
+            for (int j = 1; j <= m; j++)
+                cin >> g[i][j];
+
+        for (int i = 1; i <= n; i++)
+            for (int j = 1; j <= m; j++)
+                if (g[i][j] == '@') bfs(i, j);
+
+        cout << ans << endl;
+    }
+}
+ */

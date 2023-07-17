@@ -1,52 +1,66 @@
 #include <iostream>
+
 using namespace std;
 
-typedef long long LL;
-const int N = 1e5 + 10, MOD = 1e9 + 7;
-int cases = 0;
-int p[N];// 预处理数组
+const int N = 100010;
+pair<int, int> stk[N];// 栈
+int ans[N];
 
-void solve()
-{
-    int n, m;
-    cin >> n >> m;
-    string s;
-    cin >> s;
+int main() {
+	int n, m, top = 0;
+	cin >> n >> m;
+	while (m--) {
+		int p, q;
+		cin >> p >> q;
+		if (p == 0) {
+			// 如果栈不空，并且是前缀操作
+			while (top && stk[top].first == 0) q = max(q, stk[top--].second);
+			// 如果当前操作比上一次相同操作的范围要大，那此次操作的前两次操作都将被无效化 
+			// 删掉前缀范围小的操作
+			while (top >= 2 && stk[top - 1].second <= q) top -= 2;
+			stk[++top] = {0, q};// 将操作加入栈
+		} else if (top) {// 后缀升序操作，需要栈非空时才有作用
+			// 如果栈顶操作跟现在的一样
+			while (top && stk[top].first == 1) q = min(q, stk[top--].second);
+			// 如果当前操作比上一次相同操作的范围要大，那此次操作的前两次操作都将被无效化 
+			// 删掉后缀范围小的操作
+			while (top >= 2 && stk[top - 1].second >= q) top -= 2;
+			stk[++top] = {1, q};// 加入操作
+		}
+	}
 
-    // 预处理
-    p[0] = 1;
-    for (int i = 1; i <= m; i++)
-        p[i] = p[i - 1] * m % MOD;// 求出在没有限制的情况下的最大值
+	// 每次缩小范围，倒着填入数字
+	int left = 1, right = n, k = n;
+	for (int i = 1; i < top + 1; i++) {
+		// 左右向中间靠拢
+		if (stk[i].first == 0) {
+			while (right > stk[i].second && left < right + 1) {
+				ans[right--] = k--;
+			}
+		} else {
+			while (left < stk[i].second && left < right + 1) {
+				ans[left++] = k--;
+			}
+		}
+		// 如果已经填完了所有的数
+		if (left > right) {
+			break;
+		}
+	}
 
-    int const mid = (n + 1) / 2;// 自由度
-    LL res = 0;
-    for (int i = 0; i < mid; i++)
-    {
-        // 当前位置剩下的可选值乘以后续无限制的值，表示当前位置的值
-        res += (LL)(s[i] - 'a') * p[mid - i - 1] % MOD;
-        res %= MOD;
-    }
+	// 如果没有填完
+	if (top % 2) {// 如果是奇数，做完了有区间
+		while (left < right + 1) {// 降序
+			ans[left++] = k--;
+		}
+	} else {
+		while (left < right + 1) {
+			ans[right--] = k--;
+		}
+	}
 
-    // 检查最后一次计算的结果的字典序是否小于题目给出的
-    int t = 0;
-    for (int i = mid - 1, j = n - 1 - i; i >= 0; i -- ,j++)
-        if (s[i] != s[j])
-        {
-            if (s[i] < s[j]) t = 1;
-            break;
-        }
-
-    res = (res + t) % MOD;
-    cout << "Case #" << ++ cases << ": " << res << endl;
+	for (int i = 1; i < n + 1; i++) {
+		cout << ans[i] << " ";
+	}
+	return 0;
 }
-
-int main()
-{
-    int t;
-    cin >> t;
-    while (t--)
-        solve();
-    return 0;
-}
-
-// https://www.acwing.com/problem/content/description/3755/
