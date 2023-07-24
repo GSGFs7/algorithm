@@ -33,3 +33,6 @@ int main()
     BFS(n, k);
     return 0;
 }
+
+
+// http://poj.org/problem?id=3278
