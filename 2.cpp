@@ -1,66 +1,66 @@
-#include <iostream>
+#include <cstdio>
+#include <cstring>
+#include <algorithm>
+#define getb(i, j) i / 3 * 3 + j / 3
 
 using namespace std;
 
-const int N = 100010;
-pair<int, int> stk[N];// 栈
-int ans[N];
+const int wei[9][9] = {
+{6,6,6,6,6,6,6,6,6,},
+{6,7,7,7,7,7,7,7,6,},
+{6,7,8,8,8,8,8,7,6,},
+{6,7,8,9,9,9,8,7,6,},
+{6,7,8,9,10,9,8,7,6},
+{6,7,8,9,9,9,8,7,6,},
+{6,7,8,8,8,8,8,7,6,},
+{6,7,7,7,7,7,7,7,6,},
+{6,6,6,6,6,6,6,6,6,},
+};
+
+int a[10][10], hapi[10][10], hapj[10][10], hapb[10][10], num[10], rnk[10], ans;
+
+bool comp1(int a, int b) {
+	return num[a] < num[b];
+}
+
+void dfs(int cur, int sum, int la) {
+	if(cur == 81) {
+		ans = max(ans, sum);
+		return;
+	}
+	if(sum +  9 + la * 9 <= ans) return; 
+
+	int i = rnk[cur/9], j = cur % 9, b = getb(i, j);
+	if(a[i][j]) dfs(cur+1, sum+a[i][j]*wei[i][j], la-a[i][j]);
+	else for(int k = 1; k <= 9; k++) {
+		if(!hapi[i][k] && !hapj[j][k] && !hapb[b][k]) {
+			hapi[i][k] = hapj[j][k] = hapb[b][k] = 1;
+			dfs(cur+1, sum+k*wei[i][j], la-k);
+			hapi[i][k] = hapj[j][k] = hapb[b][k] = 0;
+		}
+	}
+}
 
 int main() {
-	int n, m, top = 0;
-	cin >> n >> m;
-	while (m--) {
-		int p, q;
-		cin >> p >> q;
-		if (p == 0) {
-			// 如果栈不空，并且是前缀操作
-			while (top && stk[top].first == 0) q = max(q, stk[top--].second);
-			// 如果当前操作比上一次相同操作的范围要大，那此次操作的前两次操作都将被无效化 
-			// 删掉前缀范围小的操作
-			while (top >= 2 && stk[top - 1].second <= q) top -= 2;
-			stk[++top] = {0, q};// 将操作加入栈
-		} else if (top) {// 后缀升序操作，需要栈非空时才有作用
-			// 如果栈顶操作跟现在的一样
-			while (top && stk[top].first == 1) q = min(q, stk[top--].second);
-			// 如果当前操作比上一次相同操作的范围要大，那此次操作的前两次操作都将被无效化 
-			// 删掉后缀范围小的操作
-			while (top >= 2 && stk[top - 1].second >= q) top -= 2;
-			stk[++top] = {1, q};// 加入操作
-		}
-	}
+	ans = -1;
+	memset(hapi, 0, sizeof(hapi));
+	memset(hapj, 0, sizeof(hapj));
+	memset(hapb, 0, sizeof(hapb));
+	memset(num, 0, sizeof(num));
 
-	// 每次缩小范围，倒着填入数字
-	int left = 1, right = n, k = n;
-	for (int i = 1; i < top + 1; i++) {
-		// 左右向中间靠拢
-		if (stk[i].first == 0) {
-			while (right > stk[i].second && left < right + 1) {
-				ans[right--] = k--;
-			}
-		} else {
-			while (left < stk[i].second && left < right + 1) {
-				ans[left++] = k--;
-			}
-		}
-		// 如果已经填完了所有的数
-		if (left > right) {
-			break;
+	for(int i = 0; i < 9; i++) {
+		rnk[i] = i;
+		for(int j = 0; j < 9; j++) {
+			scanf("%d", &a[i][j]);
+			if(a[i][j])
+				hapi[i][a[i][j]] = hapj[j][a[i][j]] = hapb[getb(i, j)][a[i][j]] = 1;
+			else
+				num[i]++;
 		}
 	}
-
-	// 如果没有填完
-	if (top % 2) {// 如果是奇数，做完了有区间
-		while (left < right + 1) {// 降序
-			ans[left++] = k--;
-		}
-	} else {
-		while (left < right + 1) {
-			ans[right--] = k--;
-		}
-	}
-
-	for (int i = 1; i < n + 1; i++) {
-		cout << ans[i] << " ";
-	}
+    
+	sort(rnk, rnk+9, comp1);
+	dfs(0, 0, 405);
+	printf("%d\n", ans);
 	return 0;
 }

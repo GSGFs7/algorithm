@@ -33,3 +33,14 @@ int main(void)
 		}
 	return 0;
 }
+
+
+// update 2023.7.24
+/// 求杨辉三角某一行的值
+void yh()
+{
+    int n = 10;
+    int p[20];
+    for (int i = 1; i * 2 < n; i++)
+        p[i] = p[n - i - 1] = (n - i) * p[i - 1] / i;
+}
