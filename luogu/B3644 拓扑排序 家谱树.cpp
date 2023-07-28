@@ -37,8 +37,8 @@ int main()
         d[x] ++;// 入度
     }
 
-    vector<int> a = topoSort();
-    for (auto i : a) cout << i << ' ';
+    vector<int> b = topoSort();
+    for (auto i : b) cout << i << ' ';
     return 0;
 }
 
