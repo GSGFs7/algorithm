@@ -7,6 +7,7 @@ C:/Program Files/JetBrains/CLion 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Mod
 C:/Program Files/JetBrains/CLion 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake
 C:/Program Files/JetBrains/CLion 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake
 C:/Program Files/JetBrains/CLion 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCompilerIdDetection.cmake
+C:/Program Files/JetBrains/CLion 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDependentOption.cmake
 C:/Program Files/JetBrains/CLion 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCCompiler.cmake
 C:/Program Files/JetBrains/CLion 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCXXCompiler.cmake
 C:/Program Files/JetBrains/CLion 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompileFeatures.cmake
@@ -94,6 +95,7 @@ C:/Program Files/JetBrains/CLion 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Mod
 C:/Program Files/JetBrains/CLion 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-MSVC.cmake
 C:/Program Files/JetBrains/CLion 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake
 C:/Program Files/JetBrains/CLion 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake
+C:/Users/20305/.vcpkg-clion/vcpkg/scripts/buildsystems/vcpkg.cmake
 C:/c/CMakeLists.txt
 C:/c/cmake-build-debug-mingw/CMakeFiles/3.26.4/CMakeCCompiler.cmake
 C:/c/cmake-build-debug-mingw/CMakeFiles/3.26.4/CMakeCXXCompiler.cmake

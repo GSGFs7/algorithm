@@ -33,21 +33,21 @@ using namespace std;
 
 const int N = 510;
 int n, m;
-int g[N][N];// 图
-int dist[N];// 从起点到第i个点的距离
-bool st[N];// 最小值是否确定
+int g[N][N];    // 图，邻接矩阵
+int dist[N];    // 从起点到第i个点的距离
+bool st[N];     // 最小值是否确定
 
 int dijkstra()
 {
     // 初始化
-    memset(dist, 0x3f, sizeof dist);
+    memset(dist, 0x3f, sizeof dist);    // 将距离全部设为最大值
     dist[1] = 0;
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)// 每个点都计算一次
     {
-        // 找到没有确定最短路那个点的最小距离
-        int t = -1;
-        for (int j = 1; j <= n; j++)
+        // 取最小距离，找到到没有确定最短路那个点
+        int t = -1;                     // t就表示最小点的下标
+        for (int j = 1; j <= n; j++)    // 遍历所有点
             if (!st[j] && (t == -1 || dist[t] > dist[j]))
                 t = j;
 

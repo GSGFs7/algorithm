@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+// 好像是个01背包？
+
 const int N = 1010;
 int f[N][N], v[N], w[N];
 int n, m;

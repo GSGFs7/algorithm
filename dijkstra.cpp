@@ -30,6 +30,7 @@ void dijkstra(int s, int t)// 以s为起点
     memset(b, false, sizeof b);// 开始时所有元素都不在集合c中
     memset(dist, 127, sizeof dist);
     dist[s] = 0;
+
     while (true)
     {
         int x = -1;// 没有值时

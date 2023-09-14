@@ -35,3 +35,7 @@ int main() {
         cout << quick_power(i, p - 2, p) << '\n';
     return 0;
 }
+
+
+// https://www.luogu.com.cn/problem/P3811
+// 5个点后面两个TLE

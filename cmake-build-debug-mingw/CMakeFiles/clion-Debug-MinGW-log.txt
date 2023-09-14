@@ -1,4 +1,5 @@
-"C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -S C:\c -B C:\c\cmake-build-debug-mingw
+"C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_TOOLCHAIN_FILE=C:\Users\20305\.vcpkg-clion\vcpkg\scripts\buildsystems\vcpkg.cmake -S C:\c -B C:\c\cmake-build-debug-mingw
+-- Building for: Visual Studio 17 2022
 -- The C compiler identification is MSVC 19.36.32535.0
 -- The CXX compiler identification is MSVC 19.36.32535.0
 -- Detecting C compiler ABI info
@@ -11,6 +12,6 @@
 -- Check for working CXX compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.36.32532/bin/Hostx64/x64/cl.exe - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
--- Configuring done (9.7s)
+-- Configuring done (7.6s)
 -- Generating done (0.0s)
 -- Build files have been written to: C:/c/cmake-build-debug-mingw
