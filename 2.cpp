@@ -1,77 +1,76 @@
-#include <iostream>
-#include <algorithm>
-#include <queue>
-#include <unordered_map>
-
+#include<bits/stdc++.h>
 using namespace std;
-
-typedef unordered_map<string, int> USI; // 为了后面方便定义
-typedef queue<string> QS;
-
-const int N = 6;
-
-string a[N], b[N];
-string A, B;
-int n;
-
-int expand(QS& q, USI& da, USI& db, string a[N], string b[N])
+#define lson l,m,rt<<1
+#define rson m+1,r,rt<<1|1
+const int maxn=1e5+5;
+typedef long long ll;
+ll sum[maxn<<2];
+void PushUP(int rt)
 {
-    string t = q.front(); // 取出队头元素
-    q.pop();
-    
-    for (int i = 0; i < t.size(); i ++ ) // 在长度内
-        for (int j = 0; j < n; j ++ )
-            if (t.substr(i, a[j].size()) == a[j]) // 如果两部分相等
-            {
-                string st = t.substr(0, i) + b[j] + t.substr(i + a[j].size()); // 前面到从0开始，长度是i，加上规则中的，再加上后半部分
-                if (da.count(st))   continue; // 如果做过，就跳过，算是一个剪枝优化吧
-                if (db.count(st))   return da[t] + 1 + db[st]; // 值是从起点到当前的t点，加上到当前点的1，然后加上从终点走到当前点的距离
-                da[st] = da[t] + 1; // 更新答案
-                q.push(st);
-            }
-    return 11; // 如果无解就返回一个比10大的数就行
+    sum[rt]=sum[rt<<1]+sum[rt<<1|1];
 }
-
-int bfs()
+ 
+void build(int l,int r,int rt)
 {
-    QS qa, qb; // 定义两个队列，一个从起点开始，一个从终点开始
-    USI da, db; // 用来判重，这是第一种写法
-    
-    qa.push(A), da[A] = 0; // 初始化起点，到起点的距离是0
-    qb.push(B), db[B] = 0; // 初始化终点，到终点的距离是0
-    
-    while (qa.size() && qb.size()) // 两个队列中都有元素才会继续
+    if(l==r)
     {
-        int t;
-        // 每次先扩展元素较少的
-        if (qa.size() < qb.size())  t = expand(qa, da, db, a, b); // 运用规则
-        else    t = expand(qb, db, da, b, a); // 如果是相反的，规则要反过来用
-        
-        if (t <= 10)    return t; // 在规定范围内就返回
+        scanf("%lld",&sum[rt]);
+        return ;
     }
-    
-    return 11; // 如果无解返回一个比10大的数就好
+    int m=(l+r)>>1;
+    build(lson);
+    build(rson);
+    PushUP(rt);
 }
-
+void update(int L,int R,int l,int r,int rt)
+{
+    if(l==r)
+    {
+        sum[rt]=sqrt(sum[rt]);
+        return ;
+    }
+    if(L<=l&&R>=r&&sum[rt]==r-l+1)//如果区间内的所有数都是1则不必更新
+        return;
+    int m=(l+r)>>1;
+    if(L<=m)
+        update(L,R,lson);
+    if(m<R)
+        update(L,R,rson);
+    PushUP(rt);
+}
+ll query(int L,int R,int l,int r,int rt)
+{
+    if(L<=l&&r<=R)
+    {
+        return sum[rt];
+    }
+    int m=(l+r)>>1;
+    ll ret=0;
+    if(L<=m)
+        ret+=(ret,query(L,R,lson));
+    if(R>m)
+        ret+=(ret,query(L,R,rson));
+    return ret;
+}
 int main()
 {
-    freopen("1.in", "r", stdin);
-    freopen("1.out", "w", stdout);
-
-    cin >> A >> B;
-    
-    while (cin >> a[n] >> b[n])   n ++; // 由于输入个数不确定所以用这种方法输入
-    
-    if (A == B) // 在AcWing上需要特判
+    int n,m,t=0;
+    while(scanf("%d",&n)==1)
     {
-        puts("0");
-        return 0;
+        int a,b,c;
+        build(1,n,1);
+        scanf("%d",&m);
+        printf("Case #%d:\n",++t);
+        while(m--)
+        {
+            scanf("%d%d%d",&a,&b,&c);
+            if(b>c) swap(b,c);
+            if(a)
+                printf("%lld\n",query(b,c,1,n,1));
+            else
+                update(b,c,1,n,1);
+        }
+        printf("\n");
     }
-    
-    int step = bfs();
-    
-    if (step > 10)  puts("NO ANSWER!"); // 题目中说了，只要多于10步即视为无解
-    else    printf("%d\n", step);
-    
     return 0;
 }
