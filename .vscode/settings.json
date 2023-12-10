@@ -77,7 +77,14 @@
     "variant": "cpp",
     "ctime": "cpp",
     "condition_variable": "cpp",
-    "cmath": "cpp"
+    "cmath": "cpp",
+    "barrier": "cpp",
+    "coroutine": "cpp",
+    "unordered_map": "cpp",
+    "unordered_set": "cpp",
+    "syncstream": "cpp",
+    "system_error": "cpp",
+    "typeindex": "cpp"
   },
   "search.quickOpen.includeSymbols": false,
   "workbench.editor.enablePreviewFromQuickOpen": false
