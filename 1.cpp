@@ -2,6 +2,10 @@
 #define int long long
 using namespace std;
 
+void solve()
+{
+}
+
 signed main()
 {
 #ifdef __LOCAL__
@@ -9,4 +13,12 @@ signed main()
     freopen("1.out", "w", stdout);
 #endif
 
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr), cout.tie(nullptr);
+
+    int t;
+    cin >> t;
+    while (t--)
+        solve();
+    return 0;
 }
