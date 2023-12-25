@@ -25,17 +25,10 @@
 	"sourceGroups" : 
 	[
 		{
-			"name" : "",
-			"sourceIndexes" : 
-			[
-				0
-			]
-		},
-		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				1
+				0
 			]
 		}
 	],
@@ -43,14 +36,9 @@
 	[
 		{
 			"backtrace" : 0,
-			"path" : "CMakeLists.txt",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "cmake-build-debug-mingw/CMakeFiles/6cbf48c743ef8399f0ca3a1d3fcfa53e/generate.stamp.rule",
-			"sourceGroupIndex" : 1
+			"sourceGroupIndex" : 0
 		}
 	],
 	"type" : "UTILITY"

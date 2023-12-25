@@ -9,7 +9,7 @@ void solve()
 {
     cout << n << endl;
     for (int i = 1; i <= n; i++) {
-        cout << rng() % 1000000000 + 1 << endl;
+        cout << rng() % 10000000000 + 1 << endl;
     }
 }
 
