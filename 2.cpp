@@ -1,62 +1,101 @@
-#include <bits/stdc++.h>
+#include <bits/extc++.h>
 #define int long long
 using namespace std;
+using namespace __gnu_cxx;
 
+/// 莫队
 /*
- * 给出n个正整数和一个k，你可以把其中一个正整数加上k，然后拆成两个数，求所有值相等的最小操作次数
+ * 给出一个数组，求一个区间中有多大的概率取出两个相同数的概率
  *
- * 最后变成的数=(a[i]+m*k)/(m+1)
- * 化简=k+(a[i]-k)/(m+1)
- * 最后的数都满足这个条件，要求最小操作次数，也就是求最小公约数的
+ *
  * */
+
+const int N = 5e4 + 10;
+int n, m;
+int maxn;
+int c[N];
+int ans1[N], ans2[N];
+int cnt[N];
+int sum = 0;
+
+struct Node
+{
+    int l, r, id;
+
+    bool operator < (const Node x)// 重载<运算符
+    {
+        if (l / maxn != x.l / maxn) return l < x.l;// l优先
+        return (l / maxn) & 1 ? r < x.r : r > x.r;
+    }
+} a[N];
+
+void add(int i)
+{
+    sum += cnt[i];
+    cnt[i] ++;
+}
+
+void del(int i)
+{
+    cnt[i] --;
+    sum -= cnt[i];
+}
 
 void solve()
 {
-    int n, k;
-    cin >> n >> k;
-    vector<int> a(n);
-    int g = 0;
-    int maxn = -1e9, minn = 1e9;
-    int cnt = 0;
-    for (auto& i : a)
+    cin >> n >> m;
+    maxn = sqrt(n);
+    for (int i = 1; i <= n; i++) cin >> c[i];
+    for (int i = 0; i < m; i++) cin >> a[i].l >> a[i].r, a[i].id = i;
+
+    sort(a, a + m);// l优先的排序
+//    for (int i = 0; i < m; i++) cout << a[i].l << ' ' << a[i].r << '\n';
+
+    // 预处理，离线算法，不可后续更新
+    for (int i = 0, l = 1, r = 0; i < m; i++)
     {
-        cin >> i;
-        g = gcd(g, i - k);
-        maxn = max(maxn, i);// 最值
-        minn = min(minn, i);
-        cnt += i == k;// 0的最大公约数，直接输出-1
+        if (a[i].l == a[i].r)// 如果区间中只有一个数
+        {
+            ans1[a[i].id] = 0;
+            ans2[a[i].id] = 1;
+            continue;
+        }
+
+        while (l > a[i].l) add(c[-- l]);
+        while (r < a[i].r) add(c[++ r]);
+        while (l < a[i].l) del(c[l ++]);
+        while (r > a[i].r) del(c[r --]);
+
+        ans1[a[i].id] = sum;
+        ans2[a[i].id] = (r - l + 1) * (r - l) / 2;
     }
 
-    if (a == vector<int> (n, a[0])) return cout << 0 << '\n', void();// 如果不用拆分
-    if (cnt) return cout << -1 << '\n', void();
-    if (maxn > k && minn < k) return cout << -1 << '\n', void();// 如果k被包围在数据中，那么就是无法完成的
+    for (int i = 0; i < m; i++)
+    {
+        if (ans1[i] != 0)
+        {
+            int g = gcd(ans1[i], ans2[i]);
+            ans1[i] /= g, ans2[i] /= g;
+        }
+        else ans2[i] = 1;
 
-    int ans = 0;
-    for (auto i : a)
-        ans += abs(i - k) / g - 1;// 每次的花费
-    cout << ans << '\n';
+        cout << ans1[i] << '/' << ans2[i] << '\n';
+    }
 }
 
-signed main()
-{
+signed main(){
 #ifdef __LOCAL__
     freopen("1.in", "r", stdin);
     freopen("1.out", "w", stdout);
 #endif
 
     ios::sync_with_stdio(false);
-    cin.tie(nullptr), cout.tie(nullptr);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
 
-    int start = clock();
-
-    int t;
-    cin >> t;
-    while (t--)
+    int t = 1;
+//    cin >> t;
+    while(t--)
         solve();
-
-//    cout << clock() - start << '\n';
     return 0;
 }
-
-
-// https://codeforces.com/contest/1909/problem/D

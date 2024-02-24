@@ -1,23 +1,24 @@
-#include <bits/stdc++.h>
-#define int long long
-using namespace std;
+#include "bits/stdc++.h"
 
-void solve()
-{
+using namespace std;
+#define int long long
+
+void solve() {
+    cout << __cplusplus << '\n';
 }
 
-signed main()
-{
+signed main() {
 #ifdef __LOCAL__
     freopen("1.in", "r", stdin);
     freopen("1.out", "w", stdout);
 #endif
 
     ios::sync_with_stdio(false);
-    cin.tie(nullptr), cout.tie(nullptr);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
 
-    int t;
-    cin >> t;
+    int t = 1;
+    // cin >> t;
     while (t--)
         solve();
     return 0;
