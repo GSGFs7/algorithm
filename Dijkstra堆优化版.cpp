@@ -1,7 +1,7 @@
 // 堆优化版
 // 稀疏图
 // 最大值变成mlogn
-// 堆不正常修改任意一个元素
+// 堆不支持修改任意一个元素
 // 优先队列mlogm   logm <= logn^2 = 2logn
 #include <cstring>
 #include <iostream>
