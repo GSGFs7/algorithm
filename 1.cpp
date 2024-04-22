@@ -1,10 +1,9 @@
-#include "bits/stdc++.h"
+#include <iostream>
 
 using namespace std;
-#define int long long
 
 void solve() {
-    cout << __cplusplus << '\n';
+
 }
 
 signed main() {
@@ -14,12 +13,12 @@ signed main() {
 #endif
 
     ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
+    cin.tie(nullptr), cout.tie(nullptr);
 
     int t = 1;
     // cin >> t;
-    while (t--)
+    while (t--) {
         solve();
+    }
     return 0;
 }
