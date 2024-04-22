@@ -35,14 +35,14 @@ inline int ls(int p) { return p << 1; }     // 定位左儿子
 inline int rs(int p) { return p << 1 | 1; } // 定位右儿子 或1也表示加1，因为左移后最后一位是0
 
 /// 从下向上传递值
-inline void pushUp(int p)
+inline void pushUp(int p)// 这个函数可以根据具体实现来自由配置 Lazy和pushDown同理
 {
     tree[p] = tree[ls(p)] + tree[rs(p)];        // 求区间和
     // tree[p] = min(tree[ls(p)], tree[rs(p)]); // 最小值
 }
 
 /// 建树
-void build(int p, int pl, int pr)   // pl和pr分别表示当前状态的最左点和最右点
+void build(int p, int pl, int pr)   // pl和pr分别表示当前状态的最左点和最右点(仅作为指针)
 {
     lazy[p] = 0;    // 初始化，貌似没用
     if (pl == pr)   // 如果已经找到了最底层
@@ -52,9 +52,9 @@ void build(int p, int pl, int pr)   // pl和pr分别表示当前状态的最左�
     }
 
     int const mid = (pl + pr) >> 1;
-    build(ls(p), pl, mid);
-    build(rs(p), mid + 1, pr);
-    pushUp(p);
+    build(ls(p), pl, mid);// 左儿子的节点编号和他的范围
+    build(rs(p), mid + 1, pr);// 右儿子的节点编号和他的范围
+    pushUp(p);// 更新当前节点的值
 }
 
 /// 打上Lazy-Tag标记并更新

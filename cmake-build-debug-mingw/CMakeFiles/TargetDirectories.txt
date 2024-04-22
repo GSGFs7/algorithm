@@ -1,2 +1,0 @@
-C:/c/cmake-build-debug-mingw/CMakeFiles/ALL_BUILD.dir
-C:/c/cmake-build-debug-mingw/CMakeFiles/ZERO_CHECK.dir

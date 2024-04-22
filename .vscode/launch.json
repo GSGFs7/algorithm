@@ -1,7 +1,7 @@
 {
     "configurations": [
         {
-            "name": "C/C++: g++.exe 生成和调试活动文件",
+            "name": "g++?启动!",
             "type": "cppdbg",
             "request": "launch",
             // 下面是编译生成

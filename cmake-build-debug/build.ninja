@@ -41,38 +41,38 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = C$:/c/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target main
+# Object build statements for EXECUTABLE target 1
 
 
 #############################################
-# Order-only phony target for main
+# Order-only phony target for 1
 
-build cmake_object_order_depends_target_main: phony || CMakeFiles/main.dir
+build cmake_object_order_depends_target_1: phony || CMakeFiles/1.dir
 
-build CMakeFiles/main.dir/1.cpp.obj: CXX_COMPILER__main_unscanned_Debug C$:/c/1.cpp || cmake_object_order_depends_target_main
+build CMakeFiles/1.dir/1.cpp.obj: CXX_COMPILER__1_unscanned_Debug C$:/c/1.cpp || cmake_object_order_depends_target_1
   DEFINES = -D__LOCAL__
-  DEP_FILE = CMakeFiles\main.dir\1.cpp.obj.d
+  DEP_FILE = CMakeFiles\1.dir\1.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\main.dir
-  OBJECT_FILE_DIR = CMakeFiles\main.dir
+  OBJECT_DIR = CMakeFiles\1.dir
+  OBJECT_FILE_DIR = CMakeFiles\1.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target main
+# Link build statements for EXECUTABLE target 1
 
 
 #############################################
-# Link the executable C:\c\main.exe
+# Link the executable C:\c\1.exe
 
-build C$:/c/main.exe: CXX_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/1.cpp.obj
+build C$:/c/1.exe: CXX_EXECUTABLE_LINKER__1_Debug CMakeFiles/1.dir/1.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\main.dir
-  POST_BUILD = cmd.exe /C "cd /D C:\c\cmake-build-debug && "C:\Program Files\PowerShell\7\pwsh.exe" -noprofile -executionpolicy Bypass -file C:/Users/20305/.vcpkg-clion/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/c/main.exe -installedDir C:/Users/20305/.vcpkg-clion/vcpkg/installed/x64-windows/debug/bin -OutVariable out"
+  OBJECT_DIR = CMakeFiles\1.dir
+  POST_BUILD = cmd.exe /C "cd /D C:\c\cmake-build-debug && "C:\Program Files\PowerShell\7\pwsh.exe" -noprofile -executionpolicy Bypass -file C:/Users/20305/.vcpkg-clion/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/c/1.exe -installedDir C:/Users/20305/.vcpkg-clion/vcpkg/installed/x64-windows/debug/bin -OutVariable out"
   PRE_LINK = cd .
-  TARGET_FILE = C:\c\main.exe
-  TARGET_IMPLIB = C:\c\libmain.dll.a
-  TARGET_PDB = main.exe.dbg
+  TARGET_FILE = C:\c\1.exe
+  TARGET_IMPLIB = C:\c\lib1.dll.a
+  TARGET_PDB = 1.exe.dbg
 
 
 #############################################
@@ -100,9 +100,9 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build main: phony C$:/c/main.exe
+build 1: phony C$:/c/1.exe
 
-build main.exe: phony C$:/c/main.exe
+build 1.exe: phony C$:/c/1.exe
 
 # =============================================================================
 # Folder targets.
@@ -112,7 +112,7 @@ build main.exe: phony C$:/c/main.exe
 #############################################
 # Folder: C:/c/cmake-build-debug
 
-build all: phony C$:/c/main.exe
+build all: phony C$:/c/1.exe
 
 # =============================================================================
 # Built-in targets

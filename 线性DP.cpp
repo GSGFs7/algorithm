@@ -54,3 +54,64 @@ int main()
     }*/
     return 0;
 }
+
+
+/* update：2024年4月3日
+#include <iostream>
+#include <limits>
+#include <vector>
+
+using namespace std;
+
+void solve() {
+    int n;
+    cin >> n;
+    vector<vector<int>> a(n + 1, vector<int>(n + 1, 0));
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= i; j++) {
+            cin >> a[i][j];
+        }
+    }
+
+    // for (int i = 1; i <= n; i++) {
+    //     for (int j = 1; j <= i; j++) {
+    //         cout << a[i][j] << '\t';
+    //     }
+    //     cout << '\n';
+    // }
+
+    vector<int> dp(n + 1);
+    for (int i = 1; i <= n; i++) {
+        for (int j = i; j; j--) {
+            if (j == 1) 
+                dp[j] = dp[j] + a[i][j];
+            else if (j == i) 
+                dp[j] = dp[j - 1] + a[i][j];
+            else 
+                dp[j] = max(dp[j] + a[i][j], dp[j - 1] + a[i][j]);
+        }
+        // for (int j = 1; j <= i; j++) cout << dp[j] << ":" << a[i][j] << '\t';cout << '\n';
+    }
+
+    int ans = -1e9;
+    for (int i = 1; i <= n; i++) ans = max(ans, dp[i]);
+    cout << ans << '\n';
+}
+
+signed main() {
+#ifdef __LOCAL__
+    freopen("1.in", "r", stdin);
+    freopen("1.out", "w", stdout);
+#endif
+
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr), cout.tie(nullptr);
+
+    int t = 1;
+    // cin >> t;
+    while (t--) {
+        solve();
+    }
+    return 0;
+}
+*/
