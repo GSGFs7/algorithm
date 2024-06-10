@@ -21,6 +21,15 @@ int find(int x) // 核心操作 返回x的祖宗节点 + 路径压缩
     return p[x];
 }
 
+// 按秩合并
+void merge(int x, int y) {
+    int xx = find(x), yy = find(y);
+    if (siz[xx] < siz[yy]) swap(xx, yy);
+    f[yy] = xx;
+    siz[xx] += siz[yy];
+}
+
+
 int main()
 {
     int n, m;

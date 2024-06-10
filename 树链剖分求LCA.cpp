@@ -95,12 +95,22 @@ void dfs2(int u, int t) {
 //     return dep[u] < dep[v] ? u : v;    // 输出深度较小的
 // }
 
-int lca(int u, int v) {    // 求LCA
+int LCA(int u, int v) {    // 求LCA
     while (top[u] != top[v]) {
         if (dep[top[u]] < dep[top[v]]) swap(u, v);    // 保证u的深度最深(是top的深度)
         u = fa[top[u]];                               // 直接爬到链头
     }
     return dep[u] < dep[v] ? u : v;    // 输出深度较小的
+    // 因为已经在同一条链上了直接深的向上爬就好了
+}
+
+// 暴力求LCA, 相比树剖优化, 仅仅少了一层top
+int BruteForceLCA(int u, int v) {
+    while (u != v) {
+        if (dep[u] < dep[v]) swap(u, v);
+        u = fa[u];
+    }
+    return u;
 }
 
 void solve() {

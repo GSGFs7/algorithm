@@ -102,7 +102,7 @@ int query(int L, int R, int p, int pl, int pr)
 
     int res = 0;
     int const mid = (pl + pr) >> 1;
-    if (L <= mid) res += query(L, R, ls(p), pl, mid);
+    if (L <= mid) res += query(L, R, ls(p), pl, mid);// 超出了大写的L的范围
     if (R > mid) res += query(L, R, rs(p), mid + 1, pr);
     return res;
 }

@@ -134,10 +134,189 @@
     "semaphore": "cpp",
     "stdfloat": "cpp",
     "stop_token": "cpp",
-    "ios": "cpp"
-  },
+    "ios": "cpp",
+    "电子音乐演奏实验.C": "cpp",
+    "text_encoding": "cpp",
+    "generator": "cpp",
+    "print": "cpp"
+},
   "search.quickOpen.includeSymbols": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   // 修改字体
-  "editor.fontFamily": "JetBrains Mono, 'Courier New', monospace",
+  "editor.fontFamily": "JetBrains Mono, LXGW WenKai Mono, monospace",
+
+  // [[Vim]]
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+      {
+          "before": [
+              "j",
+              "j"
+          ],
+          "after": [
+              "<Esc>"
+          ]
+      }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+      {
+          "before": [
+              "<leader>",
+              "d"
+          ],
+          "after": [
+              "d",
+              "d"
+          ]
+      },
+      {
+          "before": [
+              "<C-n>"
+          ],
+          "commands": [
+              ":nohl"
+          ]
+      },
+      {
+          "before": [
+              "K"
+          ],
+          "commands": [
+              "lineBreakInsert"
+          ],
+          "silent": true
+      },
+      {
+          // g + d open definition in side view
+          "before": [
+              "g",
+              "d"
+          ],
+          "commands": [
+              "editor.action.revealDefinitionAside"
+          ]
+      },
+      {
+          // g + i open implementation in side view
+          "before": [
+              "g",
+              "i"
+          ],
+          "commands": [
+              "workbench.action.splitEditor",
+              "editor.action.goToImplementation"
+          ]
+      },
+      {
+          // g + t open type definition in side view
+          "before": [
+              "g",
+              "t"
+          ],
+          "commands": [
+              "workbench.action.splitEditor",
+              "editor.action.goToTypeDefinition"
+          ]
+      },
+      {
+          // rename symbol
+          "before": [
+              "r",
+              "n"
+          ],
+          "commands": [
+              "editor.action.rename"
+          ]
+      },
+      {
+          // format document
+          "before": [
+              "f",
+              "f"
+          ],
+          "commands": [
+              "editor.action.formatDocument"
+          ]
+      },
+      {
+          // open current tab in new side view
+          "before": [
+              "s",
+              "n"
+          ],
+          "after": [
+              "<C-w>",
+              "v"
+          ]
+      },
+      {
+          // close current tab
+          "before": [
+              "s",
+              "c"
+          ],
+          "after": [
+              "<C-w>",
+              "c"
+          ]
+      },
+      {
+          // switch to the left tab
+          "before": [
+              "s",
+              "h"
+          ],
+          "after": [
+              "g",
+              "T"
+          ]
+      },
+      {
+          // switch to the right tab
+          "before": [
+              "s",
+              "l"
+          ],
+          "after": [
+              "g",
+              "t"
+          ]
+      },
+      {
+          // switch between editor groups/views 
+          "before": [
+              "s",
+              "s"
+          ],
+          "commands": [
+              "workbench.action.navigateEditorGroups"
+          ]
+      },
+      {
+          // start the zen mode
+          "before": [
+              "z",
+              "z"
+          ],
+          "commands": [
+              "workbench.action.toggleZenMode"
+          ]
+      }
+  ],
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+      "<C-a>": false,
+      "<C-f>": false,
+      "<C-c>": false,
+      "<C-b>": false,
+      "<C-0>": false
+},
+"C_Cpp.autocompleteAddParentheses": true,
+"Codegeex.Chat.LanguagePreference": "中文",
 }
+
+

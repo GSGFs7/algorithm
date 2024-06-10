@@ -18,25 +18,11 @@ void solve() {
 }
 
 void solve1() {
-    unsigned int rdm = rng();
-    string s;
-    while (s.size() < n) {
-        s.push_back('0' + (rdm & 1));
-        rdm >>= 1;
-        if (!rdm) rdm = rng();
-    }
-    while (s.size() > n) s.pop_back();
-    cout << s << '\n';
-}
-
-int cnt = 0;
-void solve2() {
-    while (cnt < 1e5) {
-        for (int i = 1; i < 1000; i++) {
-            cnt ++;
-            if (cnt >= 1e5) return ;
-            cout << i << ' ' << i + 1 << ' ' << 100000 << '\n';
+    for (int i = 0; i < 1000; i++) {
+        for (int j = 0; j < 451; j++) {
+            cout << ((rng() % 5) ? 0 : rng() % 1000) << ' ';
         }
+        cout << '\n';
     }
 }
 
@@ -45,6 +31,6 @@ signed main() {
     freopen("1.in", "w", stdout);
 
 
-    int t = 1e5;
-    while (t--) solve2();
+    int t = 1;
+    while (t--) solve1();
 }
