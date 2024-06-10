@@ -11,5 +11,5 @@ add_executable(1 1.cpp)
 
 # 用于本地编译的宏
 add_compile_definitions(__LOCAL__)
-MATH(EXPR stack_size "100*1024*1024") # 100MB
+MATH(EXPR stack_size "1000*1024*1024") # 1000MB
 set(CMAKE_EXE_LINKER_FLAGS "-Wl,--stack,${stack_size}") # 设置栈大小
