@@ -317,6 +317,7 @@
 },
 "C_Cpp.autocompleteAddParentheses": true,
 "Codegeex.Chat.LanguagePreference": "中文",
+"python.analysis.typeCheckingMode": "basic",
 }
 
 
