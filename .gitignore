@@ -1,2 +1,19 @@
-./build
-./.idea
+# 编译产物
+1
+*.o
+*.a
+*.so
+*.dll
+*.exe
+*.pyc
+*.class
+build/
+dist/
+target/
+out/
+
+# IDE 配置文件
+.idea/
+.vscode/
+*.sublime-project
+*.config

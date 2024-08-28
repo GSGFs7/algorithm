@@ -1,8 +1,0 @@
-[
-{
-  "directory": "/mnt/c/build",
-  "command": "/usr/bin/c++ -D__LOCAL__ -g -std=gnu++20 -o CMakeFiles/1.dir/1.cpp.o -c /mnt/c/1.cpp",
-  "file": "/mnt/c/1.cpp",
-  "output": "CMakeFiles/1.dir/1.cpp.o"
-}
-]
