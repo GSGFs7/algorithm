@@ -1,37 +1,31 @@
-from math import gcd
-
-def main():
+def solve():
     n = int(input())
-    a = list(map(int, input().split()))
-    mul = 2
-    for x in a:
-        mul *= x
 
-    ans = [0] * n
-    for i in range(n):
-        ans[i] = mul // a[i]
+    def n2s(n):
+        res = ""
+        while n:
+            if n & 1:
+                res += "1"
+            else:
+                res += "0"
+            n >>= 1
+        return res[::-1]
 
-    l = 0
-    for i in range(n):
-        l = gcd(l, ans[i])
+    def s2n(s):
+        res = 0
+        base = 1
+        for i in s[::-1]:
+            if i == "1":
+                res += base
+            base >>= 1
+        return res
 
-    if l:
-        for i in range(n):
-            ans[i] //= l
+    pass
 
-    sum_ = sum(ans)
-    min_ = min(ans[i] * a[i] for i in range(n))
 
-    if min_ <= sum_:
-        print(-1)
-        return
+if __name__ == "__main__":
+    你好 = 1
+    你好 = int(input())
+    for _ in range(你好):
+        solve()
 
-    for x in ans:
-        print(x, end=" ")
-    print("")
-
-if __name__ == '__main__':
-    t = int(input())
-    while t:
-        main()
-        t -= 1
