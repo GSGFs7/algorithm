@@ -2,9 +2,7 @@
 
 using namespace std;
 
-void solve() {
-
-}
+void solve() {}
 
 signed main() {
 #ifdef __LOCAL__
