@@ -1,31 +1,20 @@
 def solve():
-    n = int(input())
-
-    def n2s(n):
-        res = ""
-        while n:
-            if n & 1:
-                res += "1"
-            else:
-                res += "0"
-            n >>= 1
-        return res[::-1]
-
-    def s2n(s):
-        res = 0
-        base = 1
-        for i in s[::-1]:
-            if i == "1":
-                res += base
-            base >>= 1
-        return res
-
+    out = open("1.out", "w")
+    sys.stdout = out
+    print(1000)
+    for i in range(1000):
+        print(1, end=" ")
     pass
 
 
 if __name__ == "__main__":
+    import sys, os
+
+    if os.getenv("LOCAL_VSCode") or os.getenv("SHELL"):
+        infile = open("1.in", "r")
+        sys.stdin = infile
+
     你好 = 1
-    你好 = int(input())
+    # 你好 = int(input())
     for _ in range(你好):
         solve()
-

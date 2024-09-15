@@ -4,8 +4,8 @@ project(1 CXX)
 
 # 更改可执行文件到根目录下
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR})
-# 设置c++版本为20
-set(CMAKE_CXX_STANDARD 20)
+# 设置c++版本为23
+set(CMAKE_CXX_STANDARD 23)
 
 add_executable(1 1.cpp)
 

@@ -1,6 +1,5 @@
 #include <iostream>
 #include <stack>
-#include <vector>
 
 /*
   2-SAT
