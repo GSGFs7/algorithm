@@ -1,11 +1,10 @@
 #include <algorithm>
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
 /*
-  Z函sss
+  Z函数
   对于一个长度为n的字符串s, z[i]表示s与其后缀s[i,n]的最长公共前缀(LCP)的长度
   如: a a a b a a a b c   的z数组就是
       9 2 1 0 4 2 1 0 0
@@ -41,8 +40,8 @@ void get_z(string s) {
     z[1] = s.size() - 1;
     for (int i = 2, l, r = 0; i < s.size(); i++) {
         if (i <= r) z[i] = min(z[i - l + 1], r - i + 1);    // 如果在盒子里, 在直接复制
-        while (s[1 + z[i]] == s[i + z[i]]) z[i]++;          // 如果匹配, 向后移动
-        if (i + z[i] - 1 > r) l = i, r = i + z[i] - 1;      // 如果超出了盒子的范围
+        while (s[1 + z[i]] == s[i + z[i]]) z[i]++;        // 如果匹配, 向后移动
+        if (i + z[i] - 1 > r) l = i, r = i + z[i] - 1;    // 如果超出了盒子的范围
     }
 }
 

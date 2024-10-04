@@ -319,13 +319,20 @@
     "python.analysis.typeCheckingMode": "basic",
     // "C_Cpp.intelliSenseEngine": "disabled", // 禁用c++扩展的代码分析，避免与clangd冲突
     "clangd.path": "/usr/bin/clangd",
-    "clangd.arguments": [],
+    "clangd.arguments": [
+        // "--log=verbose", 
+        "--compile-commands-dir=/home/jh/Documents/algorithm",
+        "--limit-results=1000", // 限制结果数量
+        "--clang-tidy",
+        "--completion-style=detailed",
+        "--background-index=true",
+    ],
     "code-runner.runInTerminal": true, // 允许 Code Runner 使用集成终端
     "code-runner.executorMap": { // 设置运行输出的终端
-        // "cpp": "g++ -o $fileNameWithoutExt $fileName && $dir$fileNameWithoutExt",
-        "cpp": "g++ -o 1 $fileName && $dir$fileNameWithoutExt",
+        "cpp": "g++ -o $fileNameWithoutExt $fileName && $dir$fileNameWithoutExt",
         "python": "python3 -u",
         "javascript": "node",
     },
-    "code-runner.showExecutionMessage": false // 禁用自动运行
+    "code-runner.showExecutionMessage": false,
+    "python.analysis.autoImportCompletions": false, // 禁用自动运行
 }
