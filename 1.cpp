@@ -1,13 +1,20 @@
-#include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-void solve() {}
+void solve() {
+    int n;
+    cin >> n;
+    for (int i = 1; i < n; i++) {
+        int u, v;
+        cin >> u >> v;
+    }
+}
 
 signed main() {
 #ifdef __LOCAL__
     freopen("1.in", "r", stdin);
-    freopen("1.out", "w", stdout);
+    // freopen("1.out", "w", stdout);
 #endif
 
     ios::sync_with_stdio(false);
