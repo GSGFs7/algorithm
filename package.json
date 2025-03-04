@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "ts-node": "^10.9.2",
+    "@types/node": "^22.10.5"
+  },
+  "scripts": {
+    "start": "ts-node 1.ts"
+  }
+}

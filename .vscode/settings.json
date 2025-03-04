@@ -326,6 +326,10 @@
         "--clang-tidy",
         "--completion-style=detailed",
         "--background-index=true",
+        "--all-scopes-completion",
+        "-j=12",
+        "--pch-storage=memory", // pch放到内存中
+        // "--function-arg-placeholders=false", // 补全函数的占位符功能
     ],
     "code-runner.runInTerminal": true, // 允许 Code Runner 使用集成终端
     "code-runner.executorMap": { // 设置运行输出的终端
@@ -334,5 +338,7 @@
         "javascript": "node",
     },
     "code-runner.showExecutionMessage": false,
-    "python.analysis.autoImportCompletions": false, // 禁用自动运行
+    "python.analysis.autoImportCompletions": false,
+    "editor.fontSize": 20,
+    "files.autoSave": "onFocusChange", // 禁用自动运行
 }
