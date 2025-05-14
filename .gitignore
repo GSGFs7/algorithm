@@ -31,8 +31,14 @@ obj/
 
 node_modules
 
-
 # Added by cargo
 /target
 
-docker 
+docker
+
+# config
+.vscode
+
+# 重新生成的文件
+compile_commands.json
+Makefile
