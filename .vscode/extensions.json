@@ -1,3 +1,8 @@
 {
-    "recommendations": []
+    "recommendations": [
+        "llvm-vs-code-extensions.vscode-clangd",
+        "ms-vscode.cmake-tools",
+        "xaver.clang-format",
+        "vadimcn.vscode-lldb"
+    ]
 }

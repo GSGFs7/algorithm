@@ -1,6 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from typing import List
+from functools import cache
+from collections import Counter
+from bisect import bisect_right
+from itertools import groupby, permutations
+from string import ascii_lowercase
+from math import inf, sqrt
+
 
 def solve():
     pass
