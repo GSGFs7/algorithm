@@ -143,7 +143,7 @@
     "search.quickOpen.includeSymbols": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     // 修改字体
-    "editor.fontFamily": "JetBrains Mono, LXGW WenKai Mono, monospace",
+    "editor.fontFamily": "Maple Mono NF, LXGW WenKai Mono, monospace",
     // [[Vim]]
     "vim.easymotion": true,
     "vim.incsearch": true,
@@ -315,9 +315,8 @@
         "<C-0>": false
     },
     "C_Cpp.autocompleteAddParentheses": true,
-    "Codegeex.Chat.LanguagePreference": "中文",
     "python.analysis.typeCheckingMode": "basic",
-    // "C_Cpp.intelliSenseEngine": "disabled", // 禁用c++扩展的代码分析，避免与clangd冲突
+    "C_Cpp.intelliSenseEngine": "disabled", // 禁用c++扩展的代码分析，避免与clangd冲突
     "clangd.path": "/usr/bin/clangd",
     "clangd.arguments": [
         // "--log=verbose", 
@@ -340,5 +339,8 @@
     "code-runner.showExecutionMessage": false,
     "python.analysis.autoImportCompletions": false,
     "editor.fontSize": 20,
-    "files.autoSave": "onFocusChange", // 禁用自动运行
+    "files.autoSave": "onFocusChange",
+    "cSpell.words": [
+        "nums"
+    ], // 禁用自动运行
 }

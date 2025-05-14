@@ -21,7 +21,7 @@ void tc() {
     vll th(n);    // 第几大
     iota(th.begin(), th.end(), 0);
     sort(th.begin(), th.end(), [&](ll a, ll b) { return vsum[a] > vsum[b]; });
-    
+
     ll ans = 0;
     for (ll i = 0; i < n; i++) {
         ans += vsum[th[i]] * (n - 1 - i) * m;
