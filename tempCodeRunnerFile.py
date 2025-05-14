@@ -1,2 +1,0 @@
-
-    return inner_func
