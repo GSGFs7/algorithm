@@ -10,7 +10,14 @@ from string import ascii_lowercase
 from math import inf, sqrt
 
 
+class Solution:
+    def kthCharacter(self, k: int) -> str:
+        return ascii_lowercase[(k - 1).bit_count()]
+
+
 def solve():
+    s = Solution()
+    print(s.kthCharacter(1))
     pass
 
 
